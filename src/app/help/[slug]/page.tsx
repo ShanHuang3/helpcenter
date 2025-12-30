@@ -1,6 +1,4 @@
 import { notFound } from "next/navigation";
-import Navigation from "../../modules/home/Navigation";
-import Footer from "../../modules/home/Footer";
 import Link from "next/link";
 
 // 定義幫助文章的內容（可以之後改為從資料庫或 API 獲取）
@@ -70,23 +68,53 @@ const helpArticles: Record<string, { title: string; content: string }> = {
 };
 
 interface HelpPageProps {
-  params: {
-    slug: string;
-  };
+  params:
+    | Promise<{
+        slug: string;
+      }>
+    | {
+        slug: string;
+      };
 }
 
-export default function HelpPage({ params }: HelpPageProps) {
-  const article = helpArticles[params.slug];
+export default async function HelpPage({ params }: HelpPageProps) {
+  // 處理 params 可能是 Promise 的情況（Next.js 16+）
+  const resolvedParams = await Promise.resolve(params);
+  const slug = resolvedParams.slug;
+
+  // 調試：檢查 slug 值
+  console.log("Full params:", resolvedParams);
+  console.log("Received slug:", slug);
+  console.log("Available articles:", Object.keys(helpArticles));
+
+  if (!slug) {
+    notFound();
+  }
+
+  const article = helpArticles[slug];
 
   if (!article) {
+    console.log("Article not found for slug:", slug);
     notFound();
   }
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navigation />
       <main className="flex-1 bg-[var(--color-background-gray)]">
-        <div className="max-w-4xl mx-auto px-4 py-16">
+        <div>
+          <div className="mt-8 pt-8 flex justify-between max-w-4xl mx-auto px-4">
+            <Link
+              href="/"
+              className="text-[var(--color-background-blue)] border border-gray-200 rounded-md px-4 py-2 bg-blue-500 text-white hover:scale-105 transition-all duration-300"
+            >
+              ← 返回幫助中心
+            </Link>
+            <button className="text-blue-500 border border-blue-500 rounded-full px-4 py-2 bg-white-500 hover:scale-105 transition-all duration-300 cursor-pointer">
+              ↓ Download
+            </button>
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="bg-white rounded-xl shadow-sm p-8">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
               {article.title}
@@ -95,18 +123,25 @@ export default function HelpPage({ params }: HelpPageProps) {
               className="prose prose-lg max-w-none"
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
-            <div className="mt-8 pt-8 border-t border-gray-200">
-              <Link
-                href="/"
-                className="text-[var(--color-background-blue)] hover:underline"
-              >
-                ← 返回幫助中心
-              </Link>
+            {/* 調試信息 - 暫時顯示 */}
+            <div className="border-t border-gray-200 mt-8 mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-sm">
+              <p className="font-bold text-yellow-800">調試信息：</p>
+              <p>
+                收到的 slug 值:{" "}
+                <code className="bg-yellow-100 px-2 py-1 rounded">
+                  {slug || "未定義"}
+                </code>
+              </p>
+              <p>
+                可用的文章:{" "}
+                <code className="bg-yellow-100 px-2 py-1 rounded">
+                  {Object.keys(helpArticles).join(", ")}
+                </code>
+              </p>
             </div>
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

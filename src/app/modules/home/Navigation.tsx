@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaRegBell } from "react-icons/fa";
 import { PiLineVerticalThin } from "react-icons/pi";
-import { FiUser } from "react-icons/fi";
 import { LuLogOut } from "react-icons/lu";
 import Button from "../../components/Button";
+import RoleSelector from "../../components/RoleSelector";
 
 export default function Navigation() {
   return (
@@ -38,8 +38,16 @@ export default function Navigation() {
           >
             <FaRegBell className="w-4 h-4" />
           </button>
+
+          <div aria-hidden="true">
+            <PiLineVerticalThin className="w-4 h-4" />
+          </div>
+          <RoleSelector />
+          <div aria-hidden="true">
+            <PiLineVerticalThin className="w-4 h-4" />
+          </div>
           <button
-            className="p-2 hover:bg-white/10 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
+            className="flex items-center gap-2 p-2 hover:bg-white/10 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
             aria-label="語言選擇"
           >
             <svg
@@ -76,15 +84,8 @@ export default function Navigation() {
                 strokeLinejoin="round"
               />
             </svg>
+            <span>中文</span>
           </button>
-          <div aria-hidden="true">
-            <PiLineVerticalThin className="w-4 h-4" />
-          </div>
-          <div className="p-3 flex items-center gap-1 text-sm ">
-            <FiUser className="w-4 h-4" aria-hidden="true" />
-            <span>Account</span>
-          </div>
-
           <Button
             icon={<LuLogOut className="w-4 h-4" />}
             text="Log Out"

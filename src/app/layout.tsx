@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navigation from "./modules/home/Navigation";
 import Footer from "./modules/home/Footer";
+import SidebarMenu from "./modules/home/SidebarMenu";
 
 import "./globals.css";
 
@@ -30,11 +31,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        <div className="flex flex-col min-h-screen">
-          {/* 在切換頁面時, Navigation 和 Footer 會固定顯示 */}
-          <Navigation />
-          <div className="flex-1 overflow-y-auto">{children}</div>
-          <Footer />
+        {/* 在切換頁面時, Navigation 和 Footer 會固定顯示 */}
+        <Navigation />
+        <div className="flex flex-row flex-1">
+          <SidebarMenu />
+          <main className="flex flex-1 flex-col overflow-y-auto">
+            {children}
+            <Footer />
+          </main>
         </div>
       </body>
     </html>

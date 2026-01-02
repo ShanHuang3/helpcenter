@@ -33,7 +33,7 @@ export default function RootLayout({
         <div className="flex flex-col min-h-screen">
           {/* 在切換頁面時, Navigation 和 Footer 會固定顯示 */}
           <Navigation />
-          <div className="flex-1">{children}</div>
+          <div className="flex-1 overflow-y-auto">{children}</div>
           <Footer />
         </div>
       </body>

@@ -100,7 +100,7 @@ export default async function HelpPage({ params }: HelpPageProps) {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <main className="flex-1 bg-[var(--color-background-gray)]">
+      <div className="flex-1 bg-[var(--color-background-gray)]">
         <div>
           <div className="mt-8 pt-8 flex justify-between max-w-4xl mx-auto px-4">
             <Link
@@ -141,7 +141,7 @@ export default async function HelpPage({ params }: HelpPageProps) {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

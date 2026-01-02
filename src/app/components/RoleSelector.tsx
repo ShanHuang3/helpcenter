@@ -37,7 +37,7 @@ export default function RoleSelector() {
       >
         <MenuItems
           anchor="bottom end"
-          className="absolute right-0 mt-2 w-56 origin-top-right rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+          className="absolute right-0 mt-2 w-56 origin-top-right rounded-lg bg-white shadow-lg ring-1 ring-white ring-opacity-5 focus:outline-none z-50"
         >
           <div className="px-4 py-3 bg-gray-50 rounded-t-lg">
             <h3 className="text-sm font-semibold text-gray-900">Switch Role</h3>

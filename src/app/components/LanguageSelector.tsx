@@ -16,7 +16,7 @@ type Language = "中文" | "English" | "日本語";
 const languages: Language[] = ["中文", "English", "日本語"];
 
 export default function LanguageSelector() {
-  const [selectedLanguage, setSelectedLanguage] = useState<Language>("English");
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>("中文");
 
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -69,7 +69,7 @@ export default function LanguageSelector() {
       >
         <MenuItems
           anchor="bottom end"
-          className="absolute right-0 mt-2 w-36 origin-top-right rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+          className="absolute right-0 mt-2 w-36 origin-top-right rounded-lg bg-white shadow-lg ring-1 ring-white ring-opacity-5 focus:outline-none z-50"
         >
           <div className="px-4 py-3 bg-gray-50 rounded-t-lg">
             <h3 className="text-sm font-semibold text-gray-900">Language</h3>

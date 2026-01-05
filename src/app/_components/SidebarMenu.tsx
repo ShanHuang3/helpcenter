@@ -45,7 +45,7 @@ const SIMPLE_MENU_ITEMS: MenuItem[] = [
     icon: <FaRegFileAlt className="w-5 h-5" />,
   },
   {
-    href: "/",
+    href: "/help",
     label: "幫助中心",
     icon: <IoMdBook className="w-5 h-5" />,
   },
@@ -56,7 +56,7 @@ const EXPANDABLE_MENU_ITEMS: ExpandableMenuItem[] = [
     id: "user-company",
     label: "使用者/公司",
     icon: <FiUsers className="w-5 h-5" />,
-    defaultExpanded: true,
+    defaultExpanded: false,
     subItems: [
       { href: "/system-integrators", label: "系統整合商管理" },
       { href: "/groups", label: "群組管理" },

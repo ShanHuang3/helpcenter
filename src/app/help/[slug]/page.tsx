@@ -104,7 +104,7 @@ export default async function HelpPage({ params }: HelpPageProps) {
         <div>
           <div className="mt-8 pt-8 flex justify-between max-w-4xl mx-auto px-4">
             <Link
-              href="/"
+              href="/help"
               className="text-[var(--color-background-blue)] border border-gray-200 rounded-md px-4 py-2 bg-blue-500 text-white hover:scale-105 transition-all duration-300"
             >
               ← 返回幫助中心

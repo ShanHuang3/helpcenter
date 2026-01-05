@@ -5,9 +5,9 @@ import Image from "next/image";
 import { FaRegBell } from "react-icons/fa";
 import { PiLineVerticalThin } from "react-icons/pi";
 import { LuLogOut } from "react-icons/lu";
-import Button from "../../components/Button";
-import RoleSelector from "../../components/RoleSelector";
-import LanguageSelector from "../../components/LanguageSelector";
+import Button from "./Button";
+import RoleSelector from "./RoleSelector";
+import LanguageSelector from "./LanguageSelector";
 
 export default function Navigation() {
   return (

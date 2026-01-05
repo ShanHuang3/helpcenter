@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Navigation from "./modules/home/Navigation";
-import Footer from "./modules/home/Footer";
-import SidebarMenu from "./modules/home/SidebarMenu";
+import Navigation from "./_components/Navigation";
+import Footer from "./_components/Footer";
+import SidebarMenu from "./_components/SidebarMenu";
 
 import "./globals.css";
 

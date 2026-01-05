@@ -1,5 +1,5 @@
-import InputBox from "../../components/InputBox";
-import Card from "./Card";
+import InputBox from "../_components/InputBox";
+import Card from "../_components/Card";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaBookOpenReader } from "react-icons/fa6";
 import { FaCircleUser } from "react-icons/fa6";

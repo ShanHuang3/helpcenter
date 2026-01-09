@@ -24,8 +24,8 @@ export default function Card({
   defaultItemsIcon,
 }: CardProps) {
   return (
-    <div className="hover:shadow-lg transition-shadow duration-300 hover:bg-gray-50 border border-gray-200 rounded-xl">
-      <div className="bg-white shadow-sm p-6 w-[314px] h-[224px] rounded-xl">
+    <div className="border border-gray-200 rounded-xl">
+      <div className="bg-white shadow-sm p-6 w-[314px] h-[224px] rounded-xl hover:shadow-lg transition-shadow duration-300">
         <h2 className="flex items-center gap-3 mb-4 text-lg font-bold">
           <div className="w-5 h-5 text-[var(--color-background-blue)]">
             {icon}

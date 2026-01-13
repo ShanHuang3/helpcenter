@@ -20,8 +20,7 @@ export default function Button({
   className = "",
   ...props
 }: ButtonProps) {
-  const baseStyles =
-    "flex items-center justify-center gap-2 rounded-md font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer";
+  // const baseStyles = "flex btn-primary";
 
   const variantStyles = {
     primary: "bg-[var(--color-background-blue)] hover:opacity-80",
@@ -39,7 +38,7 @@ export default function Button({
 
   return (
     <button
-      className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+      className={`flex btn-primary ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
       {...props}
     >
       {icon && <span className="flex-shrink-0">{icon}</span>}
